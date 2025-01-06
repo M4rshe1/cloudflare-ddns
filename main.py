@@ -3,8 +3,12 @@ import requests
 import asyncio
 import aiocron
 import logging
+from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+load_dotenv()
 
 API_TOKEN = os.getenv("CF_API_TOKEN")
 ZONE_ID = os.getenv("CF_ZONE_ID")
