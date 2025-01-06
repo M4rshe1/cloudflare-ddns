@@ -13,7 +13,6 @@ load_dotenv()
 API_TOKEN = os.getenv("CF_API_TOKEN")
 ZONE_ID = os.getenv("CF_ZONE_ID")
 DNS_NAME = os.getenv("CF_DNS_NAME")
-CF_EMAIL = os.getenv("CF_ACC_EMAIL")
 IP_PROVIDER = os.getenv("IP_PROVIDER", "ipify")
 CRON_SCHEDULE = os.getenv("CRON_SCHEDULE", "*/5 * * * *")
 PROXY = os.getenv("PROXY", "false").lower() == "true"
@@ -45,7 +44,7 @@ def get_public_ip():
         response = requests.get(IP_PROVIDERS[IP_PROVIDER])
         response.raise_for_status()
 
-        if ["ip"] in response.json():
+        if "ip" in response.json():
             return response.json()["ip"]
         else:
             return response.text.strip()
