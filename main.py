@@ -4,9 +4,7 @@ import asyncio
 import aiocron
 import logging
 
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 API_TOKEN = os.getenv("CF_API_TOKEN")
 ZONE_ID = os.getenv("CF_ZONE_ID")
