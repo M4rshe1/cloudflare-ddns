@@ -21,7 +21,7 @@ TTL_ENV = os.getenv("TTL", "3600").lower()
 TTL = 1 if TTL_ENV == "auto" else int(TTL_ENV)
 
 
-if not all([API_TOKEN, ZONE_ID, DNS_NAME, CF_EMAIL]):
+if not all([API_TOKEN, ZONE_ID, DNS_NAME]):
     raise ValueError("Missing one or more required environment variables: API_TOKEN, ZONE_ID, DNS_NAME.")
 
 IP_PROVIDERS = {
